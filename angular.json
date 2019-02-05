@@ -140,10 +140,7 @@
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/ngx-input-loader/tsconfig.lib.json",
-            "project": "projects/ngx-input-loader/ng-package.json",
-            "assets": [
-              "projects/ngx-input-loader/src/assets"
-            ]
+            "project": "projects/ngx-input-loader/ng-package.json"
           }
         },
         "test": {
