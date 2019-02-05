@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-input-loader": [
+        "dist/ngx-input-loader"
+      ],
+      "ngx-input-loader/*": [
+        "dist/ngx-input-loader/*"
+      ]
+    }
   }
 }

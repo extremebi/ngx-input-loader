@@ -133,6 +133,41 @@
           }
         }
       }
+    },
+    "NgxInputLoader": {
+      "root": "projects/ngx-input-loader",
+      "sourceRoot": "projects/ngx-input-loader/src",
+      "projectType": "library",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-input-loader/tsconfig.lib.json",
+            "project": "projects/ngx-input-loader/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-input-loader/src/test.ts",
+            "tsConfig": "projects/ngx-input-loader/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-input-loader/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-input-loader/tsconfig.lib.json",
+              "projects/ngx-input-loader/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "InputLoaderLibrary"
