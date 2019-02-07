@@ -22,7 +22,7 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
     |--------------------------------------------------
     */
     private config: NgxInputLoaderConfig = {
-        loader: 'bars-music',
+        loader: 'ball-fading-shrink',
         background: '#fff',
         position: 'right',
         color: '#000',

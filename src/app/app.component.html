@@ -1,17 +1,17 @@
-<!-- <div class="container">
+<div class="container">
   <div class="row">
-    <div class="col-6 offset-3" [ngxInputLoader]="true">
+    <div class="col-6 offset-3">
       <form (ngSubmit)="loader = !loader">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" autocomplete="email" aria-describedby="emailHelp"
-            placeholder="Enter email" [ngxInputLoader]="loader" (click)="loader = !loader">
+          <input type="email" class="form-control" autocomplete="email" aria-describedby="emailHelp" placeholder="Enter email"
+            [ngxInputLoader]="loader" (click)="loader = !loader">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
           <label for="exampleInputEmail2">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail2" autocomplete="email" aria-describedby="emailHelp"
-            placeholder="Enter email" [ngxInputLoader]="loader3" [ngxInputLoaderConfig]="{background: '#fff'}" (click)=" loader3=!loader3">
+          <input type="email" class="form-control" autocomplete="email" aria-describedby="emailHelp" placeholder="Enter email"
+            [ngxInputLoader]="loader3" [ngxInputLoaderConfig]="{background: '#ff0066'}" (click)=" loader3=!loader3">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
@@ -28,20 +28,17 @@
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
         <br>
-        <input type="submit" style="padding-right: 50px" class="btn btn-primary" [ngxInputLoader]="loader2"
-          [ngxInputLoaderConfig]="{background: '#007bff'}">
+        <div class="form-group d-flex justify-content-center">
+          <input type="submit" style="padding-right: 50px" class="btn btn-primary" [ngxInputLoader]="loader2"
+            [ngxInputLoaderConfig]="{background: '#007bff'}">
+        </div>
       </form>
     </div>
   </div>
 </div>
-
-<input type="text" [ngxInputLoader]="loader" (click)="loader = !loader"> -->
-<h2>AUTH COMPONENT</h2>
-<app-auth></app-auth>
-
 <hr>
-
+<input type="text" [ngxInputLoader]="loader" (click)="loader = !loader">
+<hr>
 <h2>PAGES COMPONENT</h2>
 <app-pages></app-pages>

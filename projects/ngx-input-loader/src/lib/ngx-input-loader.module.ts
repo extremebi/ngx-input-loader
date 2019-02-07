@@ -5,7 +5,13 @@ import { NgxInputLoaderDirective } from './ngx-input-loader.directive';
 @NgModule({
     declarations: [NgxInputLoaderDirective],
     imports: [],
-    exports: [NgxInputLoaderDirective]
+    exports: [NgxInputLoaderDirective],
+    providers: [
+        {
+            provide: NGX_INPUT_LOADER_CONFIG,
+            useValue: {}
+        }
+    ]
 })
 export class NgxInputLoaderModule {
     static forRoot(config?: NgxInputLoaderConfig): ModuleWithProviders {

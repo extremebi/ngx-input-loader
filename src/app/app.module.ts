@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
+import { NgxInputLoaderModule } from 'projects/ngx-input-loader/src/public_api';
 
 @NgModule({
     declarations: [
@@ -13,8 +13,11 @@ import { PagesModule } from './pages/pages.module';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        AuthModule,
-        PagesModule
+        PagesModule,
+        NgxInputLoaderModule.forRoot({
+            'background': '#fff',
+            color: '#245457',
+        })
     ],
     providers: [],
     bootstrap: [AppComponent]
