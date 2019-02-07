@@ -1,9 +1,6 @@
 import { NgModule, ModuleWithProviders, InjectionToken } from '@angular/core';
-import { NgxInputLoaderService } from './ngx-input-loader.service';
-import { CustomConfig } from './custom-config.model';
+import { NgxInputLoaderConfig, NGX_INPUT_LOADER_CONFIG } from './ngx-input-loader.interface';
 import { NgxInputLoaderDirective } from './ngx-input-loader.directive';
-
-const NgxInputLoaderConfigService = new InjectionToken<CustomConfig>('NgxInputLoaderConfig');
 
 @NgModule({
     declarations: [NgxInputLoaderDirective],
@@ -11,14 +8,12 @@ const NgxInputLoaderConfigService = new InjectionToken<CustomConfig>('NgxInputLo
     exports: [NgxInputLoaderDirective]
 })
 export class NgxInputLoaderModule {
-    static forRoot(config: CustomConfig): ModuleWithProviders {
-        console.log(config);
+    static forRoot(config?: NgxInputLoaderConfig): ModuleWithProviders {
         return {
             ngModule: NgxInputLoaderModule,
             providers: [
-                NgxInputLoaderService,
                 {
-                    provide: NgxInputLoaderConfigService,
+                    provide: NGX_INPUT_LOADER_CONFIG,
                     useValue: config
                 }
             ]

@@ -8,5 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
     title = 'InputLoaderLibrary';
     loader = true;
-
+    loader1 = true;
+    loader2 = true;
+    loader3 = true;
 }

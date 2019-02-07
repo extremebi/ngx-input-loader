@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgxInputLoaderModule } from 'projects/ngx-input-loader/src/public_api';
+import { AuthModule } from './auth/auth.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
     declarations: [
@@ -12,9 +13,8 @@ import { NgxInputLoaderModule } from 'projects/ngx-input-loader/src/public_api';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        NgxInputLoaderModule.forRoot({
-            type: "Better"
-        })
+        AuthModule,
+        PagesModule
     ],
     providers: [],
     bootstrap: [AppComponent]
