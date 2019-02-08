@@ -79,7 +79,8 @@ In your component where you want to use the loader inside an input
     styleUrls: [ './home.component.scss' ],
     template: `
          <input type="text" placeholder="Enter a username"
-            [ngxInputLoader]="showLoader" [ngxInputLoaderConfig]="{background: '#ff0066'}" (click)=">
+            [ngxInputLoader]="showLoader" [ngxInputLoaderConfig]="{background: '#ff0066'}">
+            <!-- fetching results from the backend will show a spinner on the input field -->
     `,
     ...
   })
