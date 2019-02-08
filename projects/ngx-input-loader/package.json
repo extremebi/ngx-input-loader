@@ -1,33 +1,33 @@
 {
-  "name": "ngx-input-loader",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0"
-  },
-  "author": "InvincibleZeal <ritesh.ganjewala17@gmail.com> (https://github.com/invinciblezeal)",
-  "contributors": [
-    "InvincibleZeal <ritesh.ganjewala17@gmail.com> (https://github.com/invinciblezeal)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/extremebi/ngx-input-loader"
-  },
-  "keywords": [
-    "angular",
-    "angular7",
-    "ngx",
-    "ngx-input",
-    "input",
-    "loaders",
-    "spinners",
-    "input-loader",
-    "input-spinner",
-    "input-directive",
-    "input-supported",
-    "ngx-input-loader",
-    "ngx-input-spinner"
-  ],
-  "license": "ISC",
-  "bugs": "https://github.com/extremebi/ngx-input-loader/issues"
+    "name": "ngx-input-loader",
+    "version": "0.0.2",
+    "peerDependencies": {
+        "@angular/common": "^7.0.0",
+        "@angular/core": "^7.0.0"
+    },
+    "author": "InvincibleZeal <ritesh.ganjewala17@gmail.com> (https://github.com/invinciblezeal)",
+    "contributors": [
+        "InvincibleZeal <ritesh.ganjewala17@gmail.com> (https://github.com/invinciblezeal)"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/extremebi/ngx-input-loader"
+    },
+    "keywords": [
+        "angular",
+        "angular7",
+        "ngx",
+        "ngx-input",
+        "input",
+        "loaders",
+        "spinners",
+        "input-loader",
+        "input-spinner",
+        "input-directive",
+        "input-supported",
+        "ngx-input-loader",
+        "ngx-input-spinner"
+    ],
+    "license": "MIT",
+    "bugs": "https://github.com/extremebi/ngx-input-loader/issues"
 }
