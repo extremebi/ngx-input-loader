@@ -58,7 +58,8 @@ Import `NgxInputLoaderModule` in your app.module.ts
             'background': '#fff',
             color: '#245457',
             padding: '30px',
-            position: 'center'
+            position: 'center',
+            loader:'ball-bounce'
         })
     ],
     providers:[
@@ -67,6 +68,11 @@ Import `NgxInputLoaderModule` in your app.module.ts
     ...
   })
 ```
+
+List of loaders available
+<ul>
+<li>Ball Bouncing: 'ball-bouncing'
+</ul>
 
 In your component where you want to use the loader inside an input
 ```typescript
