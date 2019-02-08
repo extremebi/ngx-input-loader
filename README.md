@@ -71,7 +71,7 @@ Import `NgxInputLoaderModule` in your app.module.ts
 
 List of loaders available
 <ul>
-<li>Ball Bouncing: 'ball-bouncing'
+<li>Ball Bouncing: 'ball-bouncing'</li>
 </ul>
 
 In your component where you want to use the loader inside an input
