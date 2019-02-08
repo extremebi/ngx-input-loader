@@ -69,9 +69,21 @@ Import `NgxInputLoaderModule` in your app.module.ts
   })
 ```
 
-List of loaders available
+Types of difference Loaders available
 <ul>
 <li>Ball Bouncing: 'ball-bouncing'</li>
+<li>Ball Ellipsis: 'ball-ellipsis'</li>
+<li>Ball Fading Shrink: 'ball-fading-shrink'</li>
+<li>Ball Fading: 'ball-fading'</li>
+<li>Ball FOuntain Fading: 'ball-fountain-fading'</li>
+<li>Ball Fountain: 'ball-fountain'</li>
+<li>Ball Interwind: 'ball-interwind'</li>
+<li>Ball Line: 'ball-line'</li>
+<li>Ball Mini: 'ball-mini'</li>
+<li>Ball Planets: 'ball-planets'</li>
+<li>Ball Spinner Double: 'ball-spinner-double'</li>
+<li>Ball Spinner: 'ball-spinner'</li>
+... to see more view the list in loaders.config.ts
 </ul>
 
 In your component where you want to use the loader inside an input
