@@ -28,9 +28,9 @@ An Angular 4+ plugin to show some async task going on an input field. Eg: Fetchi
 
 [Ngx Device Detector DOCS](https://koderlabs.github.io/ngx-device-detector) -->
 
-## Live DEMO
+<!-- ## Live DEMO
 
-[Ngx Device Detector Demo](https://koderlabs.github.io/ngx-device-detector/demo)
+[Ngx Device Detector Demo](https://koderlabs.github.io/ngx-device-detector/demo) -->
 
 
 ## Installation
@@ -169,4 +169,4 @@ The library is inspired by and based on the work from [ng-device-detector ](http
 
 ## License
 
-MIT © [Ahsan Ayaz](https://github.com/extremebi)
+MIT © [Extreme Business Intelligence Private Limited](https://github.com/extremebi)
