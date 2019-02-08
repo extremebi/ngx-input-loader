@@ -26,10 +26,10 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
         background: '#fff',
         position: 'right',
         color: '#000',
+        padding: '10px',
         height: 1,
-        padding: 10,
+        opacity: 1,
         speed: 1000,
-        opacity: 1
     };
 
     constructor(
@@ -80,7 +80,7 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
         let loader = `url("data:image/svg+xml;base64,${encodedSVG}") no-repeat `
 
         loader += `${this.config.position} `
-        loader += `${this.config.position !== 'center' ? this.config.padding + 'px' : ''} center / `
+        loader += `${this.config.position !== 'center' ? this.config.padding : ''} center / `
         loader += `${this.config.height * height * 0.8}px`
 
         if (this.config.background) {

@@ -3,7 +3,7 @@ import { InjectionToken } from "@angular/core";
 export interface NgxInputLoaderConfig {
     loader?: string,
     color?: string,
-    padding?: number,
+    padding?: string,
     height?: number,
     background?: string,
     speed?: number,
