@@ -57,9 +57,9 @@ Import `NgxInputLoaderModule` in your app.module.ts
        NgxInputLoaderModule.forRoot({
             'background': '#fff',
             color: '#245457',
-            padding: '30px',
-            position: 'center',
-            loader:'ball-bounce'
+            // padding: '30px',
+            position: 'right',
+            loader: 'circles-spinner'
         })
     ],
     providers:[
