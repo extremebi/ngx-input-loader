@@ -11,10 +11,16 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
 
     @Input() ngxInputLoader: Boolean;
     @Input('ngxInputLoaderConfig') configElement: NgxInputLoaderConfig;
+
     @HostBinding('style.background') background: SafeStyle;
+    @HostBinding('style.padding-right') paddingRight: SafeStyle;
+    @HostBinding('style.padding-left') paddingLeft: SafeStyle;
+
     private inserted: boolean = false;
     private element: HTMLInputElement;
     private initialBackground: string;
+    private initialPaddingRight: string;
+    private initialPaddingLeft: string;
 
     /**
     |--------------------------------------------------
@@ -22,7 +28,7 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
     |--------------------------------------------------
     */
     private config: NgxInputLoaderConfig = {
-        loader: 'ball-fading-shrink',
+        loader: 'rolling',
         background: '#fff',
         position: 'right',
         color: '#000',
@@ -30,6 +36,7 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
         height: 1,
         opacity: 1,
         speed: 1000,
+        padButton: false
     };
 
     constructor(
@@ -44,6 +51,8 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
         this.setConfiguration(configModule);
         this.element = this.el.nativeElement;
         this.initialBackground = this.element.style.background;
+        this.initialPaddingRight = this.element.style.paddingRight;
+        this.initialPaddingLeft = this.element.style.paddingLeft;
     }
 
     ngOnChanges(changes: SimpleChanges) {
@@ -62,13 +71,14 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
         */
         this.setConfiguration(this.configElement);
 
-        if (!this.inserted && this.ngxInputLoader && this.element.localName === 'input') {
+        if (!this.inserted && this.ngxInputLoader) {
             let loader = this.getLoader();
             this.background = this.sanitizer.bypassSecurityTrustStyle(loader);
+            if (this.config.padButton) this.padSubmitButton();
             this.inserted = true;
-
         } else if (this.inserted && !this.ngxInputLoader) {
             this.background = this.initialBackground ? this.sanitizer.bypassSecurityTrustStyle(this.initialBackground) : null;
+            if (this.config.padButton) this.unpadSubmitButton();
             this.inserted = false;
         }
     }
@@ -94,6 +104,25 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
     setConfiguration(config: NgxInputLoaderConfig) {
         if (config) {
             Object.keys(config).forEach((key) => this.config[key] = config[key]);
+        }
+    }
+
+    padSubmitButton() {
+        if (this.element.type === 'submit' || this.element.type === 'button' || this.element.localName === 'button') {
+            let height = this.element.offsetHeight;
+            if (this.config.position === 'right') {
+                this.paddingRight = this.sanitizer.bypassSecurityTrustStyle(`${this.initialPaddingRight + height * 1.2}px`);
+            } else if (this.config.position === 'left') {
+                this.paddingLeft = this.sanitizer.bypassSecurityTrustStyle(`${this.initialPaddingLeft + height * 1.2}px`);
+            }
+        }
+    }
+
+    unpadSubmitButton() {
+        if (this.config.position === 'right') {
+            this.paddingRight = this.initialPaddingRight;
+        } else if (this.config.position === 'left') {
+            this.paddingLeft = this.initialPaddingLeft;
         }
     }
 }

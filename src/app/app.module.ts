@@ -15,11 +15,18 @@ import { NgxInputLoaderModule } from 'projects/ngx-input-loader/src/public_api';
         AppRoutingModule,
         PagesModule,
         NgxInputLoaderModule.forRoot({
-            'background': '#fff',
-            color: '#245457',
-            // padding: '30px',
-            position: 'right',
-            loader: 'typing'
+            // Defaults are shown. Change them to your according to your need.
+            // All properties should not be necessarily specified.
+
+            loader: 'rolling', // full list of loaders is provided below
+            position: 'right', // options: 'right', 'center', 'left'
+            color: '#000',
+            background: '#fff',
+            padding: '10px', // any supported format
+            height: 1, // number relative to input height like 0.9 or 0.25
+            opacity: 1,
+            speed: 1000, // in milliseconds
+            padButton: false, // adds padding to buttons
         })
     ],
     providers: [],

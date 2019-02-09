@@ -1,36 +1,26 @@
-<a href="https://koderlabs.github.io/ngx-device-detector">
+<a href="https://github.com/extremebi/ngx-input-loader">
   <h1 align="center">Ngx-Input-Loader</h1> 
 </a>
 
 <p align="center">
-An Angular 4+ plugin to show some async task going on an input field. Eg: Fetching results of autocomplete from backend, etc.
+An Angular 4+ plugin to add loading spinners to your input fields seamlessly. 
 </p>
 
-<!-- <p align="center">
-<a href="https://travis-ci.org/KoderLabs/ngx-device-detector"><img src="http://img.shields.io/travis/KoderLabs/ngx-device-detector.svg?style=flat" alt="travis build status" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/v/ngx-device-detector.svg" alt="npm version" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/github/stars/KoderLabs/ngx-device-detector.svg?style=social&label=Star&style=flat-square" alt="github stars" ></a>
-<a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/l/ngx-device-detector.svg?style=flat-square" alt="license" ></a>
-</p>
-<p align="center">
-  <a href="https://www.npmjs.com/package/ng2-device-detector">Deprecated package :</a>
-  <a href="https://www.npmjs.com/package/ng2-device-detector"><img src="https://img.shields.io/npm/dt/ng2-device-detector.svg?style=flat-square" alt="npm downloads total" ></a>
-  <a href="https://www.npmjs.com/package/ng2-device-detector"><img src="https://img.shields.io/npm/dm/ng2-device-detector.svg" alt="npm downloads/month" ></a>
-</p>
-<p align="center">
-  <a href="https://www.npmjs.com/package/ngx-device-detector">New package :</a>
-  <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dt/ngx-device-detector.svg?style=flat-square" alt="npm downloads total" ></a>
-  <a href="https://www.npmjs.com/package/ngx-device-detector"><img src="https://img.shields.io/npm/dm/ngx-device-detector.svg" alt="npm downloads/month" ></a>
-</p> -->
 
+## Table of contents
 
-<!-- ## DOCS
+<!-- - [Live Demo](#live-demo) -->
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Loaders](#loaders)
+- [License](#license)
 
-[Ngx Device Detector DOCS](https://koderlabs.github.io/ngx-device-detector) -->
 
 <!-- ## Live DEMO
 
-[Ngx Device Detector Demo](https://koderlabs.github.io/ngx-device-detector/demo) -->
+[Ngx Input Loader Demo](https://invinciblezeal.github.com/ngx-input-loader) -->
+
 
 
 ## Installation
@@ -41,149 +31,177 @@ To install this library, run:
 $ npm install ngx-input-loader --save
 ```
 
+
+
 ## Usage
-Import `NgxInputLoaderModule` in your app.module.ts
+
+Import `NgxInputLoaderModule` in the root module (`app.module.ts`)
+
 ```typescript
-  import { NgModule } from '@angular/core';
-  import { NgxInputLoaderModule } from 'ngx-input-loader';
-  ...
-  @NgModule({
-    declarations: [
-      ...
-    ],
+...
+import { NgxInputLoaderModule } from 'ngx-input-loader';
+
+@NgModule({
     imports: [
-      CommonModule,
-      FormsModule,
-       NgxInputLoaderModule.forRoot({
-            'background': '#fff',
-            color: '#245457',
-            // padding: '30px',
-            position: 'right',
-            loader: 'circles-spinner'
-        })
+        ...
+        NgxInputLoaderModule
     ],
-    providers:[
-      ...
+})
+
+export class AppModule { }
+  
+```
+
+Use the `ngxInputLoader` directive by binding it to a boolean value in the component's html (`any.component.html`)
+
+* INPUTS
+
+```html
+<input type="text" [ngxInputLoader]="true"> 
+```
+
+* BUTTONS
+
+```html
+<button [ngxInputLoader]="true" [ngxInputLoaderConfig]="{padButton: true}">SUBMIT</button>
+
+<!-- OR -->
+
+<input type="button" value="Submit" [ngxInputLoader]="true" [ngxInputLoaderConfig]="{padButton: true}">
+
+<input type="submit" value="Submit" [ngxInputLoader]="true" [ngxInputLoaderConfig]="{padButton: true}">
+```
+
+## Configuration
+
+#### Available Options
+
+* `loader -` Type of loader to use. See [loaders](#loaders) for the list of available loaders. Default: `rolling`.
+
+* `position -` Position of the loader on the input or button element. Default: `right`.
+    * Options: `right`, `left` & `center`.
+
+* `color -` Color of the loader. All supported color formats can be used. Default: `#000`.
+
+* `background -` Background of the element when the loader is visible. Images with `url('path/to/image')` can also be set as background. Default: `#fff`.
+
+* `padding -` Padding to the loader w.r.t. the element. Default: `10px`.
+    * In case of `position: 'right'` (default) only padding-right is applied.
+    * In case of `position: 'left'`, only padding-left is applied.
+    * In case of `position: 'center'`, no padding will be applied even if specified.
+
+* `height -` Relative height of the loader w.r.t. the element. Default: `1`.
+
+* `opacity -` Opacity of the loader. Default: `1`.
+
+* `speed -` Speed of the loader. Default: `1000` (in milli-seconds).
+
+* `padButton -` Whether to pad the button to make space for the loader when it's visible. It will pad if the element is a `button` or `input[type="submit"]` or `input[type="button"]` else it won't, even if specified.
+    * Options: `true` or `false`.
+
+
+
+#### Modular Level Configuration
+
+Pass in the configuration object in the `forRoot` method of the `NgxInputLoaderModule` in the imports array of your root module (`app.module.ts`)
+
+```typescript
+...
+import { NgxInputLoaderModule } from 'ngx-input-loader';
+
+@NgModule({
+    imports: [
+        ...
+        NgxInputLoaderModule.forRoot({
+            // Defaults are shown. Change them to your according to your need.
+            
+            loader: 'rolling', // full list of loaders is provided below
+            position: 'right', // options: 'right', 'center', 'left'
+            color: '#000',  
+            background: '#fff', 
+            padding: '10px', // any supported format
+            height: 1, // number relative to input height like 0.9 or 0.25
+            opacity: 1, 
+            speed: 1000, // in milliseconds
+            padButton: false, // adds padding to buttons
+
+            // In case any property is not specified, default options are used.
+        })
     ]
-    ...
-  })
+})
 ```
 
-Types of difference Loaders available
-<ul>
-<li>Ball Bouncing: 'ball-bouncing'</li>
-<li>Ball Ellipsis: 'ball-ellipsis'</li>
-<li>Ball Fading Shrink: 'ball-fading-shrink'</li>
-<li>Ball Fading: 'ball-fading'</li>
-<li>Ball FOuntain Fading: 'ball-fountain-fading'</li>
-<li>Ball Fountain: 'ball-fountain'</li>
-<li>Ball Interwind: 'ball-interwind'</li>
-<li>Ball Line: 'ball-line'</li>
-<li>Ball Mini: 'ball-mini'</li>
-<li>Ball Planets: 'ball-planets'</li>
-<li>Ball Spinner Double: 'ball-spinner-double'</li>
-<li>Ball Spinner: 'ball-spinner'</li>
-... to see more view the list in loaders.config.ts
-</ul>
+#### Element Level Configuration
 
-In your component where you want to use the loader inside an input
-```typescript
-  import { Component } from '@angular/core';
-  ...
-  import { DeviceDetectorService } from 'ngx-device-detector';
-  ...
-  @Component({
-    selector: 'home',  // <home></home>
-    styleUrls: [ './home.component.scss' ],
-    template: `
-         <input type="text" placeholder="Enter a username"
-            [ngxInputLoader]="showLoader" [ngxInputLoaderConfig]="{background: '#ff0066'}">
-            <!-- fetching results from the backend will show a spinner on the input field -->
-    `,
-    ...
-  })
+Add `ngxInputLoaderConfig` property binded to the configuration object to your html element. 
 
-  export class HomeComponent {
-    ...
-    constructor(..., private http: Http) {
-    ...
-    }
-    ...
-  }
+`Note-` This will override your modular level configuration (if any) just for this specific element.
 
-```
+```html
 
-<!-- ## Device service
-Holds the following properties
-* browser
-* os
-* device
-* userAgent
-* os_version
+<input type="text" [ngxInputLoader]="true" [ngxInputLoaderConfig]="{
+    loader: 'bars-music',
+    position: 'center',
+    color: '#fff',
+    background: '#333',
+    padding: '15px',
+    height: 0.75,
+    opacity: 0.7,
+    speed: 750
+}">
 
-## Helper Methods
-* **isMobile() :** returns if the device is a mobile device (android / iPhone/ windows-phone etc)
-* **isTablet() :** returns if the device us a tablet (iPad etc)
-* **isDesktop() :** returns if the app is running on a Desktop browser. -->
-
-## Development
-
-To generate all `*.js`, `*.js.map` and `*.d.ts` files:
-
-```bash
-  $ npm run tsc
-```
-
-To lint all `*.ts` files:
-
-```bash
-  $ npm run lint
-```
-
-To run unit tests
-```bash
-  $ npm run test
-```
-
-To build the library
-```bash
-  $ npm run build
+<!-- In case any property is not specified, modular level configuraition will be used (if any) else default options are used. -->
 ```
 
 
-## Run the DEMO
 
-Make sure you have @angular/cli installed
+## Loaders
 
-```bash
-  $ npm install -g @angular/cli
-```
+#### Types of Loaders Available -
+* 'ball-bounce'
+* 'ball-ellipsis'
+* 'ball-fading-shrink'
+* 'ball-fading'
+* 'ball-fountain-fading'
+* 'ball-fountain'
+* 'ball-interwind'
+* 'ball-line'
+* 'ball-mini'
+* 'ball-planets'
+* 'ball-spinner-double'
+* 'ball-spinner'
+* 'ball-triangle'
+* 'bars-music'
+* 'bars-trespassing'
+* 'bars'
+* 'circles-spinner'
+* 'circles'
+* 'clock'
+* 'dots-triple'
+* 'drops-fading'
+* 'eclipse'
+* 'flickr'
+* 'gear'
+* 'grid'
+* 'oval'
+* 'pendulum'
+* 'ring-broken'
+* 'ring-double'
+* 'ring-dual'
+* 'ripple-inbound'
+* 'ripple'
+* 'rolling-short'
+* 'rolling'
+* 'segments'
+* 'snake-chasing'
+* 'snake-full'
+* 'snake-solid'
+* 'tail-spin'
+* 'triangle-spin-triple'
+* 'twirl'
+* 'typing'
 
-```bash
-  $ cd demo
-  $ npm install
-  $ ng serve
-```
 
-the demo will be up at `localhost:4200`
-
-<!-- ## Change Log
-
-Please see [CHANGE_LOG.MD](CHANGE_LOG.MD) for the updates.
-
-## IE10, IE11 Compatibility
-
-If you're consuming the library for IE10 & IE11, make sure to uncomment (at least) these lines from `src/polyfills.ts` in your project.
-
-```typescript
-import 'core-js/es6/string';
-import 'core-js/es6/array';
-import 'core-js/es6/map';
-```
-
-## Credits
-
-The library is inspired by and based on the work from [ng-device-detector ](https://github.com/srfrnk/ng-device-detector). Also used a typescript wrapper of the amazing work in [ReTree](https://github.com/srfrnk/re-tree) for regex based needs and an Angular2 Library Creator boilerplate to get the work started fast. I.e. [Generator Angular2 library](https://github.com/jvandemo/generator-angular2-library). -->
 
 ## License
 
