@@ -8,7 +8,8 @@ export interface NgxInputLoaderConfig {
     background?: string,
     speed?: number,
     position?: string,
-    opacity?: number
+    opacity?: number,
+    padButton?: boolean
 }
 
 export const NGX_INPUT_LOADER_CONFIG = new InjectionToken<NgxInputLoaderConfig>('NGX_INPUT_LOADER_CONFIG');
