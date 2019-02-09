@@ -28,7 +28,7 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
     |--------------------------------------------------
     */
     private config: NgxInputLoaderConfig = {
-        loader: 'ball-fading-shrink',
+        loader: 'rolling',
         background: '#fff',
         position: 'right',
         color: '#000',
@@ -109,7 +109,6 @@ export class NgxInputLoaderDirective implements OnChanges, AfterViewInit {
 
     padSubmitButton() {
         if (this.element.type === 'submit' || this.element.type === 'button' || this.element.localName === 'button') {
-            console.log(this.el);
             let height = this.element.offsetHeight;
             if (this.config.position === 'right') {
                 this.paddingRight = this.sanitizer.bypassSecurityTrustStyle(`${this.initialPaddingRight + height * 1.2}px`);
