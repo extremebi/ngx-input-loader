@@ -17,7 +17,8 @@ import { NgxInputLoaderModule } from 'projects/ngx-input-loader/src/public_api';
         NgxInputLoaderModule.forRoot({
             'background': '#fff',
             color: '#245457',
-            position: 'right'
+            position: 'right',
+            loader: 'circles-spinner'
         })
     ],
     providers: [],
