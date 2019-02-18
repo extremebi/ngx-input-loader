@@ -9,7 +9,7 @@ An Angular 4+ plugin to add loading spinners to your input fields seamlessly.
 
 ## Table of contents
 
-<!-- - [Live Demo](#live-demo) -->
+- [Live Demo](#live-demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
@@ -17,9 +17,9 @@ An Angular 4+ plugin to add loading spinners to your input fields seamlessly.
 - [License](#license)
 
 
-<!-- ## Live DEMO
+## Live DEMO
 
-[Ngx Input Loader Demo](https://invinciblezeal.github.com/ngx-input-loader) -->
+[Ngx Input Loader Demo](https://invinciblezeal.github.io/ngx-input-loader-demo)
 
 
 
