@@ -26,7 +26,7 @@ import { NgxInputLoaderModule } from 'projects/ngx-input-loader/src/public_api';
             height: 1, // number relative to input height like 0.9 or 0.25
             opacity: 1,
             speed: 1000, // in milliseconds
-            padButton: false, // adds padding to buttons
+            button: false, // adds padding to buttons
         })
     ],
     providers: [],

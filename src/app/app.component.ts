@@ -11,4 +11,9 @@ export class AppComponent {
     loader1 = true;
     loader2 = true;
     loader3 = true;
+    loader4 = true;
+    button = true;
+    button1 = true;
+    button2 = true;
+    button3 = true;
 }
